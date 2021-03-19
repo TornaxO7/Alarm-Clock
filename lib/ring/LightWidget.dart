@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'dart:developer' as dev;
 import 'lightsensor.dart';
-
-FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-    FlutterLocalNotificationsPlugin();
 
 class LightSensorWidget extends StatefulWidget {
   // boolean that shows whether the user wants to set a new trigger light level
@@ -48,8 +44,6 @@ class LightSensorWidgetState extends State<LightSensorWidget> {
             onPressed: () async {
               widget.lightSensor.stopListener();
               FlutterRingtonePlayer.stop();
-
-              await flutterLocalNotificationsPlugin.cancelAll();
 
               Navigator.pop(context);
             });

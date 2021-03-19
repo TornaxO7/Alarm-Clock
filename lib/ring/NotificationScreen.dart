@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'dart:developer' as dev;
 import 'LightWidget.dart';
+import 'lightsensor.dart';
 
 class NotificationScreen extends StatelessWidget {
   final String alarmName;
 
   NotificationScreen({this.alarmName});
+
+  final LightSensor lightSensor = LightSensor();
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +29,7 @@ class NotificationScreen extends StatelessWidget {
       body: Center(
         child: LightSensorWidget(
           config: false,
+          lightSensor: this.lightSensor,
         ),
       ),
     );
